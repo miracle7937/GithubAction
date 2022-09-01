@@ -9,7 +9,7 @@ on:
 jobs:
   #Test's job
   tests:
-    name: Unit tests
+    name: Build
     #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
     #Job's steps
@@ -26,3 +26,20 @@ jobs:
       #Run Tests
       - name: Build with maven
         run:  mvn  clean install
+
+
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ebukamiracle35/github-action:latest

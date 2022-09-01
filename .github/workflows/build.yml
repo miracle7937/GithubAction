@@ -33,6 +33,6 @@ jobs:
       #Run Tests
       - name: Build with maven
         run:  |
-              mvn -0 package --file pom.xml
+              mvn spring-boot:run
               mkdir artifacts && cp target/*.jar artifacts
               cd artifacts && ls

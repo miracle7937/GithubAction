@@ -48,9 +48,9 @@
 						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<finalName>action</finalName>
-				</configuration>
+<!--				<configuration>-->
+<!--					<finalName>action</finalName>-->
+<!--				</configuration>-->
 			</plugin>
 		</plugins>
 	</build>
